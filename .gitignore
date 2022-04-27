@@ -1,0 +1,36 @@
+pokemon-management/HELP.md
+pokemon-management/target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+pokemon-management/.mvn
+pokemon-management/mvnw
+pokemon-management/mvnw.cmd
+
+### STS ###
+pokemon-management/.apt_generated
+pokemon-management/.classpath
+pokemon-management/.factorypath
+pokemon-management/.project
+pokemon-management/.settings
+pokemon-management/.springBeans
+pokemon-management/.sts4-cache
+
+### IntelliJ IDEA ###
+pokemon-management/.idea
+pokemon-management/*.iws
+pokemon-management/*.iml
+pokemon-management/*.ipr
+
+### NetBeans ###
+pokemon-management/nbproject/private/
+pokemon-management/nbbuild/
+pokemon-management/dist/
+pokemon-management/nbdist/
+pokemon-management/.nb-gradle/
+pokemon-management/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+pokemon-management/.vscode/
