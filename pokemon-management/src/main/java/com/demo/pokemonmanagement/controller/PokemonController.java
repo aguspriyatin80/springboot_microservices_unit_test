@@ -18,16 +18,16 @@ public class PokemonController {
     PokemonService pokemonService;
 //    IPokemonService pokemonService;
 
-    @PostMapping(value="/pokemon",consumes= MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
-    public Pokemon create(@RequestBody Pokemon pokemon){
-        return pokemonService.create(pokemon);
-    }
-
-//    @PostMapping("/pokemon")
-//    public ResponseEntity<Pokemon> saveOrUpdate(@RequestBody Pokemon pokemon) {
-//        return new ResponseEntity<>(pokemonService.saveOrUpdate(pokemon),HttpStatus.OK);
+//    @PostMapping(value="/pokemon",consumes= MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public Pokemon create(@RequestBody Pokemon pokemon){
+//        return pokemonService.create(pokemon);
 //    }
+
+    @PostMapping("/pokemon")
+    public ResponseEntity<Pokemon> saveOrUpdate(@RequestBody Pokemon pokemon) {
+        return new ResponseEntity<>(pokemonService.saveOrUpdate(pokemon),HttpStatus.OK);
+    }
 
     @GetMapping("/pokemon")
     public List<Pokemon> findAll(){
