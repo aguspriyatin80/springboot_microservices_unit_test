@@ -1,7 +1,6 @@
 package com.demo.pokemonmanagement.service;
 
 import com.demo.pokemonmanagement.domain.Pokemon;
-import com.demo.pokemonmanagement.dto.SearchNameReq;
 import com.demo.pokemonmanagement.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ public class PokemonService {
     PokemonRepository pokemonRepository;
 
     public List<Pokemon> findAll(){
-        return pokemonRepository.findAllByOrderByIdAsc();
+        return pokemonRepository.findAll();
     }
 
     public Pokemon findById(Long id){
@@ -26,14 +25,16 @@ public class PokemonService {
         return pokemonRepository.save(pokemon);
     }
 
-    public Pokemon update(Long id, Pokemon pokemon){
-        return pokemonRepository.findById(id)
-                .map(existingPokemon -> {
-                    existingPokemon.setName(pokemon.getName());
-                    existingPokemon.setSpecies(pokemon.getSpecies());
-                    return pokemonRepository.save(existingPokemon);
-                })
-                .orElse(null);
+    public Pokemon saveOrUpdate(Pokemon pokemon){
+        return pokemonRepository.save(pokemon);
+    }
+
+    public Pokemon updatePokemon(Long id, String name, String species) {
+        Pokemon pokemonFromDb = pokemonRepository.findById(id).get();
+        pokemonFromDb.setName(name);
+        pokemonFromDb.setSpecies(species);
+        Pokemon updatedPokemon = pokemonRepository.save(pokemonFromDb);
+        return updatedPokemon;
     }
 
     public void delete(Long id){
