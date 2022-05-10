@@ -62,14 +62,14 @@ public class PokemonServiceTest{
     public void testUpdate(){
         Pokemon pokemon = new Pokemon();
         pokemon.setId(1L);
-        pokemon.setName("Pokemon 1");
+        pokemon.setName("Pokemon 2");
         pokemon.setSpecies("Species name");
 
         when(pokemonRepository.findById(1L)).thenReturn(Optional.of(pokemon));
 
         when(pokemonRepository.save(pokemon)).thenReturn(pokemon);
 
-        pokemonService.updatePokemon(1L,"Pokemon satu",null);
+        pokemonService.update(1L,pokemon);
 
         assertNotEquals("Pokemon 1",  pokemon.getName());
 

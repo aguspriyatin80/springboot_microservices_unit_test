@@ -7,15 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="pokemon" />
         <module name="pokemon-management" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="pokemon" target="11" />
       <module name="pokemon-management" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="pokemon" options="-parameters" />
       <module name="pokemon-management" options="-parameters" />
     </option>
   </component>

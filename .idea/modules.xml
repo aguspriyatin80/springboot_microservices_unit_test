@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/pokemon/pokemon.iml" filepath="$PROJECT_DIR$/pokemon/pokemon.iml" />
       <module fileurl="file://$PROJECT_DIR$/pokemon-management/pokemon-management.iml" filepath="$PROJECT_DIR$/pokemon-management/pokemon-management.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springboot-microservice-unit-test.iml" filepath="$PROJECT_DIR$/.idea/springboot-microservice-unit-test.iml" />
     </modules>

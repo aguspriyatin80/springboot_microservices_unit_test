@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping
 public class PokemonController {
     @Autowired
     PokemonService pokemonService;
@@ -39,10 +40,10 @@ public class PokemonController {
         return pokemonService.findById(id);
     }
 
-//    @PutMapping("/pokemon/{id}")
-//    public Pokemon update(@PathVariable Long id, @RequestBody Pokemon pokemon){
-//        return pokemonService.update(id,pokemon);
-//    }
+    @PutMapping("/pokemon/{id}")
+    public Pokemon update(@PathVariable Long id, @RequestBody Pokemon pokemon){
+        return pokemonService.update(id,pokemon);
+    }
 
     @DeleteMapping("/pokemon/{id}")
     public void delete(@PathVariable Long id){

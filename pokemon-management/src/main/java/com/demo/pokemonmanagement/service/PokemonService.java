@@ -29,10 +29,10 @@ public class PokemonService {
         return pokemonRepository.save(pokemon);
     }
 
-    public Pokemon updatePokemon(Long id, String name, String species) {
+    public Pokemon update(Long id, Pokemon pokemon) {
         Pokemon pokemonFromDb = pokemonRepository.findById(id).get();
-        pokemonFromDb.setName(name);
-        pokemonFromDb.setSpecies(species);
+        pokemonFromDb.setName(pokemon.getName());
+        pokemonFromDb.setSpecies(pokemon.getSpecies());
         Pokemon updatedPokemon = pokemonRepository.save(pokemonFromDb);
         return updatedPokemon;
     }
