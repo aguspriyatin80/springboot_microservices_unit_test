@@ -12,7 +12,7 @@ import java.util.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class PokemonServiceTest{
     @InjectMocks
@@ -61,7 +61,6 @@ public class PokemonServiceTest{
     @Test
     public void testUpdate(){
         Pokemon pokemon = new Pokemon();
-        pokemon.setId(1L);
         pokemon.setName("Pokemon 2");
         pokemon.setSpecies("Species name");
 
@@ -103,4 +102,18 @@ public class PokemonServiceTest{
         assertThat(storedPokemon.getId(), equalTo(pokemon.getId()));
 
     }
+
+    @Test
+    public void testDelete() {
+        Pokemon pokemon = new Pokemon();
+        pokemon.setName("Pokemon deleted");
+        pokemon.setSpecies("Species deleted");
+        pokemon.setId(10L);
+
+        when(pokemonRepository.findById(pokemon.getId())).thenReturn(Optional.of(pokemon));
+
+        pokemonService.delete(pokemon.getId());
+        verify(pokemonRepository).deleteById(pokemon.getId());
+    }
+
 }
